@@ -16,11 +16,11 @@
 var zigzagLevelOrder = function (root) {
     const queue = []
     const count = 0
-    bfs(queue, root, count)
+    dfs(queue, root, count)
     return queue
 };
 
-function bfs(queue, root, count) {
+function dfs(queue, root, count) {
     if (!root) return
     if (!queue[count]) queue[count] = []
     if (count % 2 === 0) {
@@ -28,6 +28,6 @@ function bfs(queue, root, count) {
     } else {
         queue[count].unshift(root.val)
     }
-    bfs(queue, root.left, count + 1)
-    bfs(queue, root.right, count + 1)
+    dfs(queue, root.left, count + 1)
+    dfs(queue, root.right, count + 1)
 }
